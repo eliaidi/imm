@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="main" namespace="/" extends="json-default">
+		<action name="goWelcome" class="MainAction" method="goWelcome">
+			<result name="success" type="redirect">../page/Welcome.jsp</result>
+		</action>
+
+		<!-- 用户管理  -->
+		<action name="goLogin" class="MainAction" method="goLogin">
+			<result name="success" type="redirect">../page/Login.jsp</result>
+		</action>
+
+		<action name="login" class="MainAction" method="login">
+			<result name="success" type="redirect">../page/Main.jsp</result>
+			<result name="input" type="redirect">../page/Login.jsp</result>
+		</action>
+		
+		<action name="doQueryPwd" class="MainAction" method="doQueryPwd">
+			<result name="success" type="json">
+				<param name="root">user</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="doUpdatePassword" class="MainAction" method="doUpdatePassword">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="goLoginOut" class="MainAction" method="goLoginOut">
+			<result name="success" type="redirect">../page/Login.jsp</result>
+			<result name="input" type="redirect">../page/Login.jsp</result>
+		</action>
+		<!-- 用户管理 -->
+		<action name="goUserManager" class="MainAction" method="goUserManager">
+			<result name="success" type="redirect">../page/UserManager.jsp</result>
+		</action>
+		
+		<action name="doAddUser" class="MainAction" method="doAddUser">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doUpdateUser" class="MainAction" method="doUpdateUser">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doDeleteUser" class="MainAction" method="doDeleteUser">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="queryUserByJson" class="MainAction" method="queryUserByJson">
+			<result name="success" type="json">
+				<param name="root">userMap</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="queryUserDataGridByJson" class="MainAction" method="queryUserDataGridByJson">
+			<result name="success" type="json">
+				<param name="root">userGrid</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="queryRoleListByJson" class="MainAction" method="queryRoleListByJson">
+			<result name="success" type="json">
+				<param name="root">roleCombobox</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="querySelectByJson" class="MainAction" method="querySelectByJson">
+			<result name="success" type="json">
+				<param name="root">comboboxs</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="queryDictionaryByJson" class="MainAction" method="queryDictionaryByJson">
+			<result name="success" type="json">
+				<param name="root">dictionaryList</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<!--RSS管理 -->
+		<action name="goIndex" class="MainAction" method ="goIndex">
+			<result name="success" type="dispatcher">../page/RssIndex.jsp</result>
+		</action>
+		
+		<action name="goRssManager" class="MainAction" method="goRssManager">
+			<result name="success" type="redirect">../page/RssManager.jsp</result>
+		</action>
+		
+		<action name="queryRssByJson" class="MainAction" method="queryRssByJson">
+			<result name="success" type="json">
+				<param name="root">rssMap</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+				
+		<action name="queryRssDataGridByJson" class="MainAction" method="queryRssDataGridByJson">
+			<result name="success" type="json">
+				<param name="root">rssGrid</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<action name="doAddRss" class="MainAction" method="doAddRss">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doUpdateRss" class="MainAction" method="doUpdateRss">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doDeleteRss" class="MainAction" method="doDeleteRss">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		
+		
+		<!-- 角色管理  -->
+		<action name="goRoleManager" class="MainAction" method="goRoleManager">
+			<result name="success" type="redirect">../page/RoleManager.jsp</result>
+		</action>
+		
+		<action name="queryRoleByJson" class="MainAction" method="queryRoleByJson">
+			<result name="success" type="json">
+				<param name="root">roleMap</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+				
+		<action name="queryRoleDataGridByJson" class="MainAction" method="queryRoleDataGridByJson">
+			<result name="success" type="json">
+				<param name="root">roleGrid</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doAddRole" class="MainAction" method="doAddRole">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doUpdateRole" class="MainAction" method="doUpdateRole">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="doDeleteRole" class="MainAction" method="doDeleteRole">
+			<result name="success" type="json">
+				<param name="root">code</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+	</package>
+</struts>
